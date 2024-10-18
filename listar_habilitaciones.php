@@ -71,6 +71,7 @@ if (isset($_GET['mensaje'])) {
                                 </div>
                             </div>
                         </div>
+                        <div id="menu"><?php include_once('menu.php'); ?></div>
                         <div id='mensajes'></div>
                         <!-- Formulario para agregar una nueva habilitación -->
 
