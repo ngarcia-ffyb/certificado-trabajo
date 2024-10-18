@@ -1,0 +1,115 @@
+.form-container{
+	/*position: absolute;
+	top: 15vh;*/
+	background: #fff;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 0px #000;
+}
+
+.slider{
+    background: url("../img/fondo.png") no-repeat;
+    background-color:#2167af;
+	height: 100px;
+    background-position: center;
+}
+
+
+/* Por debajo de 700px */
+/*
+@media screen and (max-width: 700px){
+	body{font-size:20px;}
+}*/
+.btn-modal{
+	padding: 8px;
+	vertical-align: middle;
+}
+
+
+/* Por debajo de 400px */
+@media screen and (max-width: 700px){
+	body h1{font-size:1.2em;}
+	body h5{font-size:1em;}
+	.table{font-size:0.5em;}
+	.TT_TD0{width: 0.1em;}
+	.TT_TD7{width: 0.1em;}
+	.fa{font-size: 0.5em;}
+	.btn-modal{
+		padding: 1px;
+	}
+}
+/*
+@media (max-width: 200px) and (max-heigth: 160px) {
+    .mifuente {
+        font-size: 20px;
+    }
+}
+
+@media (max-width:700px) and (min-width:500px) {
+    .texto{
+       font-size: 12px;
+    }
+}
+*/
+#TTEP td{
+	vertical-align: middle;
+	/*text-align: center;*/
+	padding: 1px 0px 0px 1px;
+
+}
+#TT td{
+	padding: 1px 0px 0px 1px;
+	vertical-align: middle;	
+}
+.TT_TD0{
+	width: 0.2em;
+	padding: 0px;
+	vertical-align: middle;
+	text-align:center;
+}
+
+td.TT_TD2{/*tramites*/
+	width: 0.1em;
+	text-align: right;
+}
+
+td.TT_TD3{/*especies*/
+	width: 0px;
+	padding: 0px;
+	vertical-align: middle;
+	text-align: center;
+}
+td.TT_TD4{/*productos*/
+	width: 0px;
+	padding: 0px;
+	vertical-align: middle;
+	text-align:center;
+}
+
+td.TT_TD5{/*fecha*/
+	width: 0px;
+	padding: 0px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.TT_TD6{
+	width: 10px;
+	padding: 0px;
+	vertical-align: middle;
+	text-align:center;
+}
+
+.TT_TD7{
+	width: 0.2em;
+	padding: 0px;
+	vertical-align: middle;
+	text-align:center;
+}
+
+#TT th{
+	padding: 1px 0px 0px 1px;
+	vertical-align: middle;
+	text-align: center;
+}
+.xxxxxx{}

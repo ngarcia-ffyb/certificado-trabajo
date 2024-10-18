@@ -1,0 +1,270 @@
+.form-container{
+	/*position: absolute;
+	top: 15vh;*/
+	background: #fff;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 0px #000;
+}
+
+.form-inline{
+	/*position: absolute;
+	top: 15vh;*/
+	background: #fff;
+	padding: 10px;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 0px #000;
+}
+
+
+.slider{
+    background: url("../img/fondo.png") no-repeat;
+    background-color:#2167af;
+	height: 100px;
+    background-position: center;
+}
+
+
+/* Por debajo de 700px */
+/*
+@media screen and (max-width: 700px){
+	body{font-size:20px;}
+}*/
+.btn-modal{
+	padding: 8px;
+	vertical-align: middle;
+}
+
+
+/* Por debajo de 400px */
+@media screen and (max-width: 768px){
+	section h1{vertical-align: middle;
+		position: relative;	
+		top: 20px;
+		font-size:1.2em;
+	}
+	section h5{vertical-align: middle;
+		position: relative;	
+		top: 20px;
+		font-size:1.2em;
+	}
+
+	#Pie{
+		display: none;
+	}
+	#menu-nav{
+	/*width: 70%;*/
+
+	transition: all 2.5s;
+	}
+/*
+	body h1{font-size:1.2em;}
+	body h5{font-size:1em;}
+*/	
+	.table{font-size:0.5em;}
+	.modal-content{
+		font-size:1em;
+	}
+	.modal-content .table{
+		font-size:1em;
+	}
+
+	.container #TTTT{
+		margin:-3%;
+		padding: 0;
+	}
+	.TT_TD0{width: 0.1em;}
+	.TT_TD7{width: 0.1em;}
+	/*.fa{font-size: 0.5em;}*/
+    .fa{font-size: 1.5em;}
+	.btn-modal{
+		padding: 1px;
+	}
+}
+/*
+@media (max-width: 200px) and (max-heigth: 160px) {
+    .mifuente {
+        font-size: 20px;
+    }
+}
+*/
+@media (max-width:700px) and (min-width:500px) {
+	.table{font-size:0.9em;}
+	.container #TTTT{
+		margin:-13%;
+		padding: 0;
+	}
+	.TT_TD0{width: 0.2em;}
+	.TT_TD7{width: 0.2em;}
+	.fa{font-size: 0.8em;}
+	.btn-modal{
+		padding: 2px;
+	}
+	
+	.modal-title{
+		font-size: 1em;
+	}
+
+	.modal-footer .btn{
+		padding: 0.2em 0.2em;
+	}
+
+	.texto{
+		/*font-size: 10px;*/
+	}
+
+	.container-fluid{
+		/*font-size: 10px;*/
+	}
+	.form-container{
+		font-size: 11px;
+		background: #fff;
+		padding: 5px;
+		border-radius: 10px;
+		box-shadow: 0px 0px 10px 0px #000;
+	}
+	.form-container .form-control{
+		font-size: 10px;
+		height:25px;
+	}
+	.form-container .input-group-addon{
+		font-size: 10px;
+		height:25px;
+	}	
+	
+
+	.form-inline{
+		margin-left:-20%; 
+		margin-right: -20%;
+		background: #7766662e;
+		padding: 5px;
+		border-radius: 10px;
+		box-shadow: 0px 0px 10px 0px #000;
+	}
+
+1	.form-inline .form-control{
+		font-size: 10px;
+		height:25px;
+	}
+	.form-inline .input-group-addon{
+		font-size: 10px;
+		height:25px;
+	}	
+}
+
+#TTEP td{
+	vertical-align: middle;
+	/*text-align: center;*/
+	padding: 1px 0px 0px 1px;
+
+}
+#TT td{
+	padding: 1px 0px 0px 1px;
+	vertical-align: middle;	
+}
+.TT_TD0{
+	width: 0.2em;
+	padding: 0px;
+	vertical-align: middle;
+	text-align:center;
+}
+
+td.TT_TD2{/*tramites*/
+	width: 0.1em;
+	text-align: right;
+}
+
+td.TT_TD3{/*especies*/
+	width: 80px;
+	padding: 0px;
+	vertical-align: middle;
+	text-align: center;
+}
+td.TT_TD4{/*productos*/
+	width: 10px;
+	padding: 0px;
+	vertical-align: middle;
+	text-align:center;
+}
+
+td.TT_TD5{/*fecha*/
+	width: 10px;
+	padding: 0px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.TT_TD6{
+	width: 10px;
+	padding: 0px;
+	vertical-align: middle;
+	text-align:center;
+}
+
+.TT_TD7{
+	width: 0.2em;
+	padding: 0px;
+	vertical-align: middle;
+	text-align:center;
+}
+
+#TT th{
+	padding: 1px 0px 0px 1px;
+	vertical-align: middle;
+	text-align: center;
+}
+.input-group{
+	/*height:27px;*/
+}
+..input-group-sm{
+	height:10px;
+}
+#Fi_tipo{
+	width: 	100%;
+	height: 27px;	
+}
+#Fi_proyecto{
+	width: 	100%;
+	height: 27px;
+}
+#Fi_NroTramite{
+	width: 	100%;
+	height: 27px;
+}
+
+#Fi_estado{
+	width: 100%;
+	height: 27px;
+}
+#BFiltrar{
+	/*height: 27px;*/
+}
+
+.card-header{
+	background-color:#2167af14;
+	padding: .5rem 1rem;
+	text-align: center;
+}
+.card-footer {
+	background-color:#2167af14;
+}
+
+.card:hover {
+     background-color: #f9f9f9b3;
+    -webkit-box-shadow: 0px 0px 10px 0px #000;
+    box-shadow: 0px 0px 10px 0px #000;
+    -webkit-transition: all .55s ease-in-out;
+    transition: all .55s ease-in-out;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 34, 51, 0.1);
+    /*box-shadow: 2px 4px 10px 0 rgba(0, 34, 51, 0.05), 2px 4px 10px 0 rgba(0, 34, 51, 0.05);*/
+    box-shadow: none;
+    border-radius: 0.15rem;
+}
+.titu{
+	width: 100%;
+}
+
