@@ -22,14 +22,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             WHERE id_ddjj_head = :id_ddjj_head";
     $stmt = $pdo->prepare($sql);
     $stmt->execute([
-        ':año' => $año, 
-        ':periodo' => $periodo, 
-        ':desde' => $desde, 
-        ':hasta' => $hasta, 
-        ':estado' => $estado, 
+        ':año' => $año,
+        ':periodo' => $periodo,
+        ':desde' => $desde,
+        ':hasta' => $hasta,
+        ':estado' => $estado,
         ':id_ddjj_head' => $id_ddjj_head
     ]);
 
     echo "Registro actualizado.";
 }
-?>

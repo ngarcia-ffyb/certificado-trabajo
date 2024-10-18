@@ -61,7 +61,7 @@ $params = [
 
 if (!empty($fecha)) {
     $params['fecha'] = $fecha;
-/*
+    /*
     $dateParts = explode('/', $fecha);
     if (count($dateParts) === 3) {
         $formattedDate = $dateParts[2] . '-' . $dateParts[1] . '-' . $dateParts[0];
@@ -71,8 +71,7 @@ if (!empty($fecha)) {
 
     $params['fecha'] = $formattedDate;
     echo $formattedDate;
- */   
-
+ */
 }
 if (!empty($tipo_certificado)) {
     $params['tipo_certificado'] = $tipo_certificado;
@@ -91,29 +90,28 @@ if (count($certificados) > 0) {
         echo '<tr>';
         //echo '<td>' . $certificado['persona'] . '</td>';
         echo '<td>' . $certificado['documento'] . '</td>';
-        echo '<td>' . $certificado['apenom']. '</td>';
+        echo '<td>' . $certificado['apenom'] . '</td>';
         echo '<td>' . $certificado['descripcion'] . '</td>';
         echo '<td>' . $certificado['fecha'] . '</td>';
-        
+
         // Estado (pendiente, aceptado, rechazado)
         $estado = $certificado['estado'] == 2 ? 'Aceptado' : ($certificado['estado'] == 3 ? 'Rechazado' : 'Pendiente');
         echo '<td>' . $estado . '</td>';
-        
+
         // Acciones (Ver, Aceptar, Rechazar, Eliminar)
         echo '<td>';
         echo '<a href="ver_certificado_ajax.php?id_certificado=' . $certificado['id_ddjj_data'] . '" class="btn btn-info btn-sm action-button" data-action="Ver" data-id-certificado="11">Ver</a> ';
-        
+
         if ($estado == 'Pendiente') {
             echo '<a href="cambiar_estado.php?id_certificado=' . $certificado['id_ddjj_data'] . '&estado=2" class="btn btn-success btn-sm action-button" data-action="Aceptar">Aceptar</a> ';
             echo '<a href="cambiar_estado.php?id_certificado=' . $certificado['id_ddjj_data'] . '&estado=3" class="btn btn-danger btn-sm action-button" data-action="Rechazar">Rechazar</a> ';
         }
-        
+
         echo '<a href="eliminar_certificado.php?id_certificado=' . $certificado['id_ddjj_data'] . '" class="btn btn-warning btn-sm action-button" data-action="Eliminar">Eliminar</a>';
         echo '</td>';
-        
+
         echo '</tr>';
     }
 } else {
     echo '<tr><td colspan="6">No se encontraron certificados con los filtros aplicados.</td></tr>';
 }
-?>

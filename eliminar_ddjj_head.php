@@ -21,4 +21,3 @@ if (isset($_GET['id'])) {
     header('Location: listar_habilitaciones.php');
     exit;
 }
-?>

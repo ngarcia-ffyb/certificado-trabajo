@@ -11,10 +11,9 @@ if (isset($_GET['ano'])) {
             ORDER BY periodo";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['ano' => $ano]);
-    
+
     $periodos = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Devolver los periodos en formato JSON
     echo json_encode($periodos);
 }
-?>

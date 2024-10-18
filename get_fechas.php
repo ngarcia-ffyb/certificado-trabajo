@@ -11,12 +11,9 @@ if (isset($_GET['id_ddjj_head'])) {
             ORDER BY fecha";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(['id_ddjj_head' => $id_ddjj_head]);
-    
+
     $fechas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Devolver las fechas en formato JSON
     echo json_encode($fechas);
 }
-?>
-
-

@@ -31,8 +31,7 @@ $periodos_abiertos = $stmt_periodos->fetchAll(PDO::FETCH_ASSOC);
 if (!$periodos_abiertos) {
     echo "No hay períodos abiertos actualmente para subir certificados.";
     exit;
-}else{
-
+} else {
 }
 
 // Paso 2: Obtener los tipos de certificados
@@ -56,7 +55,7 @@ $certificado_subido = null;
 
 foreach ($periodos_abiertos as $periodo) {
     $id_ddjj_head = $periodo['id_ddjj_head'];
-     $_SESSION['id_ddjj_head'] = $id_ddjj_head;
+    $_SESSION['id_ddjj_head'] = $id_ddjj_head;
 
     $stmt_certificado = $pdo->prepare($sql_certificados_subidos);
     $stmt_certificado->execute([
@@ -69,16 +68,16 @@ foreach ($periodos_abiertos as $periodo) {
         $estado = $certificado_subido['estado'];
         switch ($estado) {
             case 1:
-                $texto_estado='Pendiente de verificacion';
+                $texto_estado = 'Pendiente de verificacion';
                 break;
             case 2:
-                $texto_estado='Aceptado';
+                $texto_estado = 'Aceptado';
                 break;
             case 3:
-                $texto_estado='Rechazado';
+                $texto_estado = 'Rechazado';
                 break;
-        }    
-        
+        }
+
         break; // Si ya subió un certificado, no es necesario continuar
     }
 }
@@ -89,60 +88,61 @@ include_once('head.php');
 
 <body>
 
-<br>
+    <br>
 
-<section class="container-fluid">
-    <section class="row justify-content-center">
-        <section col-12 col-sm-4 col-md-2 id="contenedor0">
-            <div class="col-md-4" style="margin-bottom: 10px;">
-                <div class="card p-3 mb-5 bg-white rounded" style="width: 20rem;">
-                    <div class="card-header">
-                        <img class='' src='img/logoFFyb_2024.png' width='100%' height='50' />
-                        <span class='titu'>
-                            <h4>Bienvenido, <?php echo htmlspecialchars($apenom); ?></h4>
-                            <p>Documento: <?php echo htmlspecialchars($documento); ?></p>
-                        </span>
-                    </div>
-                    <div class="card-body">
-                        
-                        <?php if ($certificado_subido): ?>
-                            <form action="index.php" name="fz" class="form-container">
-                            <p>Ya has subido el siguiente certificado:</p>
-                            <ul>
-                                <li><strong>Certificado:</strong> 
-                                    <?php 
-                                    $id_tipo_certificado = $certificado_subido['id_tipo_certificado'];
-                                    $descripcion_certificado = array_column($tipos_certificados, 'descripcion', 'id_tipo_certificado')[$id_tipo_certificado];
-                                    echo htmlspecialchars($descripcion_certificado);
-                                    ?>
-                                </li>
-                                <li><strong>Estado:</strong><?php echo $texto_estado ?></li>
-                            </ul>
-                            <button type="submit" class="btn btn-primary mt-3">Cerrar</button>
-                        </form>
-                        <?php else: ?>
-                            <!-- Seleccionar el tipo de certificado y enviar -->
-                            <form action="seleccionar_certificado.php" method="POST">
-                                <div class="form-group">
-                                    <label for="tipo_certificado">Seleccione un tipo de certificado:</label>
-                                    <select name="tipo_certificado" id="tipo_certificado" class="form-control">
-                                        <?php foreach ($tipos_certificados as $tipo): ?>
-                                            <option value="<?php echo htmlspecialchars($tipo['id_tipo_certificado']); ?>">
-                                                <?php echo htmlspecialchars($tipo['descripcion']); ?>
-                                            </option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                    <input type='hidden' name='id_ddjj_head' value='$id_ddjj_head'>
-                                </div>
-                                <button type="submit" class="btn btn-primary mt-3">Siguiente</button>
-                            </form>
-                        <?php endif; ?>
+    <section class="container-fluid">
+        <section class="row justify-content-center">
+            <section col-12 col-sm-4 col-md-2 id="contenedor0">
+                <div class="col-md-4" style="margin-bottom: 10px;">
+                    <div class="card p-3 mb-5 bg-white rounded" style="width: 20rem;">
+                        <div class="card-header">
+                            <img class='' src='img/logoFFyb_2024.png' width='100%' height='50' />
+                            <span class='titu'>
+                                <h4>Bienvenido, <?php echo htmlspecialchars($apenom); ?></h4>
+                                <p>Documento: <?php echo htmlspecialchars($documento); ?></p>
+                            </span>
+                        </div>
+                        <div class="card-body">
+
+                            <?php if ($certificado_subido): ?>
+                                <form action="index.php" name="fz" class="form-container">
+                                    <p>Ya has subido el siguiente certificado:</p>
+                                    <ul>
+                                        <li><strong>Certificado:</strong>
+                                            <?php
+                                            $id_tipo_certificado = $certificado_subido['id_tipo_certificado'];
+                                            $descripcion_certificado = array_column($tipos_certificados, 'descripcion', 'id_tipo_certificado')[$id_tipo_certificado];
+                                            echo htmlspecialchars($descripcion_certificado);
+                                            ?>
+                                        </li>
+                                        <li><strong>Estado:</strong><?php echo $texto_estado ?></li>
+                                    </ul>
+                                    <button type="submit" class="btn btn-primary mt-3">Cerrar</button>
+                                </form>
+                            <?php else: ?>
+                                <!-- Seleccionar el tipo de certificado y enviar -->
+                                <form action="seleccionar_certificado.php" method="POST">
+                                    <div class="form-group">
+                                        <label for="tipo_certificado">Seleccione un tipo de certificado:</label>
+                                        <select name="tipo_certificado" id="tipo_certificado" class="form-control">
+                                            <?php foreach ($tipos_certificados as $tipo): ?>
+                                                <option value="<?php echo htmlspecialchars($tipo['id_tipo_certificado']); ?>">
+                                                    <?php echo htmlspecialchars($tipo['descripcion']); ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                        <input type='hidden' name='id_ddjj_head' value='$id_ddjj_head'>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary mt-3">Siguiente</button>
+                                </form>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </section>
     </section>
-</section>
 
 </body>
+
 </html>

@@ -15,8 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Conexión a la base de datos
     require('conexion.php');
 
-   
-	$sql = "SELECT 
+
+    $sql = "SELECT 
                 p.persona, 
                 p.apellido, 
                 p.nombres, 
@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 p.usuario = :username 
                 AND p.clave = crypt(:password, p.clave) 
                 AND c.contacto_tipo='MP'";
-				
+
 
     // Preparar la consulta
     $stmt = $pdo->prepare($sql);
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['loggedin'] = true;
         $_SESSION['persona'] = $user['persona'];
         $_SESSION['username'] = $username;
-        
+
         $_SESSION['apenom'] = $user['apellido'] . ' ' . $user['nombres'];  // Guardar apenom
         $_SESSION['dni'] = $user['nro_documento'];  // Guardar documento
         $_SESSION['email'] = $user['email'];  // Guardar documento
@@ -74,38 +74,40 @@ include_once('head.php');
                 <div class="card p-3 mb-5 bg-white rounded" style="width: 20rem;">
                     <div class="card-header">
                         <img class='' src='img/logoFFyb_2024.png' width='100%' height='50' />
-                        <span class='titu'>Ingrese sus datos</span></div>
-                        <div class="card-body">
+                        <span class='titu'>Ingrese sus datos</span>
+                    </div>
+                    <div class="card-body">
 
-                            <div class="input-group" id="mensaje"></div>
-                            
-                            <form action="" name="f1" method="POST" class="form-container">
-                                <label for="username">Usuario</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                    <input type="text" name="username" id="username" class="form-control">
-                                </div>
-                                <label for="password">Contraseña</label>
-                                <div class="input-group">
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                    <input type="password" name="password" id="password" class="form-control">
-                                </div>
-                                <br/>
-                                <div class="input-group">
-                                    <button type="submit" class="btn btn-primary btn-block" id="Iniciar">Ingresar</button>
-                                </div>
-                            </form>
+                        <div class="input-group" id="mensaje"></div>
 
-                            <div class="input-group" id="mensaje2"></div>
+                        <form action="" name="f1" method="POST" class="form-container">
+                            <label for="username">Usuario</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" name="username" id="username" class="form-control">
+                            </div>
+                            <label for="password">Contraseña</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" name="password" id="password" class="form-control">
+                            </div>
+                            <br />
+                            <div class="input-group">
+                                <button type="submit" class="btn btn-primary btn-block" id="Iniciar">Ingresar</button>
+                            </div>
+                        </form>
 
-                        </div>
+                        <div class="input-group" id="mensaje2"></div>
+
                     </div>
                 </div>
-            </div>  
-        </section>  
+            </div>
+            </div>
+        </section>
     </section>
 </section>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>

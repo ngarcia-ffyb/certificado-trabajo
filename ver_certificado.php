@@ -34,47 +34,48 @@ include_once('head.php');
 ?>
 
 <body>
-<section class="container">
-    <h3>Detalles del Certificado</h3>
+    <section class="container">
+        <h3>Detalles del Certificado</h3>
 
-    <table class="table">
-        <tr>
-            <th>Apellido y Nombres</th>
-            <td><?php echo htmlspecialchars($certificado['apellido'] . ', ' . $certificado['nombres']); ?></td>
-        </tr>
-        <tr>
-            <th>Tipo de Certificado</th>
-            <td><?php echo htmlspecialchars($certificado['tipo_certificado']); ?></td>
-        </tr>
-        <tr>
-            <th>Fecha de Emisión</th>
-            <td><?php echo htmlspecialchars($certificado['fecha']); ?></td>
-        </tr>
-        <tr>
-            <th>Estado</th>
-            <td><?php
-                if ($certificado['estado'] == 1) {
-                    echo "Pendiente";
-                } elseif ($certificado['estado'] == 2) {
-                    echo "Aceptado";
-                } else {
-                    echo "Rechazado";
-                }
-            ?></td>
-        </tr>
-        <tr>
-            <th>Certificado</th>
-            <td>
-                <?php if ($certificado['archivo_certificado']) { ?>
-                    <a href="<?php echo htmlspecialchars($certificado['archivo_certificado']); ?>" target="_blank">Ver Certificado</a>
-                <?php } else { ?>
-                    No disponible
-                <?php } ?>
-            </td>
-        </tr>
-    </table>
+        <table class="table">
+            <tr>
+                <th>Apellido y Nombres</th>
+                <td><?php echo htmlspecialchars($certificado['apellido'] . ', ' . $certificado['nombres']); ?></td>
+            </tr>
+            <tr>
+                <th>Tipo de Certificado</th>
+                <td><?php echo htmlspecialchars($certificado['tipo_certificado']); ?></td>
+            </tr>
+            <tr>
+                <th>Fecha de Emisión</th>
+                <td><?php echo htmlspecialchars($certificado['fecha']); ?></td>
+            </tr>
+            <tr>
+                <th>Estado</th>
+                <td><?php
+                    if ($certificado['estado'] == 1) {
+                        echo "Pendiente";
+                    } elseif ($certificado['estado'] == 2) {
+                        echo "Aceptado";
+                    } else {
+                        echo "Rechazado";
+                    }
+                    ?></td>
+            </tr>
+            <tr>
+                <th>Certificado</th>
+                <td>
+                    <?php if ($certificado['archivo_certificado']) { ?>
+                        <a href="<?php echo htmlspecialchars($certificado['archivo_certificado']); ?>" target="_blank">Ver Certificado</a>
+                    <?php } else { ?>
+                        No disponible
+                    <?php } ?>
+                </td>
+            </tr>
+        </table>
 
-    <a href="listar_certificados.php" class="btn btn-primary">Volver</a>
-</section>
+        <a href="listar_certificados.php" class="btn btn-primary">Volver</a>
+    </section>
 </body>
+
 </html>

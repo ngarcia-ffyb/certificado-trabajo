@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':horas' => $horas_semanales,
                     ':archivo_certificado' => $ruta_certificado_trabajo,
                     ':archivo_recibo' => $ruta_recibo_sueldo,
-                    'id_ddjj_head'=> $id_ddjj_head,
+                    'id_ddjj_head' => $id_ddjj_head,
                     'contacto_empresa' => $contacto_empresa,
                     'apenom' => $apenom,
                     'email' => $email,
@@ -100,7 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':localidad' => $localidad,
                     ':distancia' => $distancia,
                     ':archivo_certificado' => $ruta_certificado_domicilio,
-                    'id_ddjj_head'=> $id_ddjj_head,
+                    'id_ddjj_head' => $id_ddjj_head,
                     'apenom' => $apenom,
                     'email' => $email,
                     'documento' => $documento
@@ -126,7 +126,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':persona' => $persona,
                     ':tipo_certificado' => $tipo_certificado,
                     ':archivo_certificado' => $ruta_certificado_padre,
-                    'id_ddjj_head'=> $id_ddjj_head,
+                    'id_ddjj_head' => $id_ddjj_head,
                     'apenom' => $apenom,
                     'email' => $email,
                     'documento' => $documento
@@ -154,12 +154,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':telefono' => $telefono_empresa,
                     ':horario' => $horario,
                     ':horas' => $horas_semanales,
-                    'id_ddjj_head'=> $id_ddjj_head,
+                    'id_ddjj_head' => $id_ddjj_head,
                     'apenom' => $apenom,
                     'email' => $email,
                     'documento' => $documento
-                    ]);
-                break; 
+                ]);
+                break;
 
             case '5': // Certificado de capacidades diferentes
 
@@ -181,12 +181,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':persona' => $persona,
                     ':tipo_certificado' => $tipo_certificado,
                     ':archivo_certificado' => $ruta_certificado_CD,
-                    'id_ddjj_head'=> $id_ddjj_head,
+                    'id_ddjj_head' => $id_ddjj_head,
                     'apenom' => $apenom,
                     'email' => $email,
                     'documento' => $documento
                 ]);
-                break;           
+                break;
 
             case '6': // Certificado de becas deportivas
 
@@ -208,12 +208,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':persona' => $persona,
                     ':tipo_certificado' => $tipo_certificado,
                     ':archivo_certificado' => $ruta_certificado_BD,
-                    'id_ddjj_head'=> $id_ddjj_head,
+                    'id_ddjj_head' => $id_ddjj_head,
                     'apenom' => $apenom,
                     'email' => $email,
                     'documento' => $documento
                 ]);
-                break; 
+                break;
 
             case '7': // pasantes
                 $empresa = $_POST['empresa'];
@@ -236,23 +236,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     ':telefono' => $telefono_empresa,
                     ':horario' => $horario,
                     ':horas' => $horas_semanales,
-                    'id_ddjj_head'=> $id_ddjj_head,
+                    'id_ddjj_head' => $id_ddjj_head,
                     'apenom' => $apenom,
                     'email' => $email,
                     'documento' => $documento
-                    ]);
-                break;       
+                ]);
+                break;
 
-            // Agregar más casos según los diferentes tipos de certificados
+                // Agregar más casos según los diferentes tipos de certificados
         }
 
         // Confirmar la transacción
         $pdo->commit();
 
         // Redirigir al usuario o mostrar un mensaje de éxito
-        header('Location: listar_formulario.php?success=true&persona='.$persona.'&tipo_certificado='.$tipo_certificado.'&archivo='.$ruta_certificado_domicilio);
+        header('Location: listar_formulario.php?success=true&persona=' . $persona . '&tipo_certificado=' . $tipo_certificado . '&archivo=' . $ruta_certificado_domicilio);
         exit;
-
     } catch (Exception $e) {
         // En caso de error, revertir la transacción
         $pdo->rollBack();
@@ -263,18 +262,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 // Función para subir archivos
-function subirArchivo($archivo, $tipo) {
+function subirArchivo($archivo, $tipo)
+{
     // Ruta donde se guardarán los archivos
     $directorio = 'uploads/' . $tipo . '/';
-    
+
     // Verificar si el directorio existe, si no, crear uno
     if (!is_dir($directorio)) {
         mkdir($directorio, 0777, true);
     }
-    
+
     // Generar un nombre único para el archivo
     $nombreArchivo = $directorio . uniqid() . '_' . basename($archivo['name']);
-    
+
     // Verificar y mover el archivo
     if (move_uploaded_file($archivo['tmp_name'], $nombreArchivo)) {
         return $nombreArchivo;
@@ -282,4 +282,3 @@ function subirArchivo($archivo, $tipo) {
         throw new Exception('Error al subir el archivo.');
     }
 }
-?>
